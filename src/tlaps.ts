@@ -114,6 +114,24 @@ export class TlapsClient {
                 );
             }
         ));
+        context.subscriptions.push(vscode.commands.registerTextEditorCommand(
+            'tlaplus.tlaps.todo-name',
+            (te, ed, args) => {
+                if (!this.client) {
+                    return;
+                }
+                vscode.commands.executeCommand('tlaplus.tlaps.todo-name.lsp',
+                    {
+                        uri: te.document.uri.toString(),
+                        version: te.document.version
+                    } as VersionedTextDocumentIdentifier,
+                    {
+                        start: te.selection.start,
+                        end: te.selection.end
+                    } as Range,
+                );
+            }
+        ));
         context.subscriptions.push(vscode.workspace.onDidChangeConfiguration(event => {
             if (this.readConfig()) {
                 this.tryStop();

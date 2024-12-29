@@ -203,6 +203,11 @@
                 "command": "tlaplus.tlaps.check-step",
                 "title": "Check proof step in TLAPS",
                 "category": "TLA+"
+            },
+            {
+                "command": "tlaplus.tlaps.todo-name",
+                "title": "TODO: Name",
+                "category": "TLA+"
             }
         ],
         "snippets": [
